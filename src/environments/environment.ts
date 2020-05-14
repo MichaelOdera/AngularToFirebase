@@ -3,8 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  baseUrl: "http://quotes.stormconsultancy.co.uk/random.json"
+  baseUrl: "http://quotes.stormconsultancy.co.uk/random.json",
+  production: false
 };
 
 /*
