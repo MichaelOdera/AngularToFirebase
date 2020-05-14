@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Goal } from '../goal';
+import { GoalService } from '../goal-service/goal.service';
+import { AlertService } from '../alert-service/alert.service';
+import { Quote } from '../quote-class/quote';
+import { HttpClient } from '@angular/common/http';
+import { QuoteRequestService } from '../quote-http/quote-request.service';
 
 @Component({
   selector: 'app-goal',
@@ -19,6 +24,7 @@ export class GoalComponent implements OnInit {
 
       if (deleteGoal) {
         this.goals.splice(index, 1);
+        this.alertService.alertMe("The goal has been deleted successfully");
       }
     }
   }
@@ -30,16 +36,20 @@ export class GoalComponent implements OnInit {
     this.goals.push(goal)
   }
 
-  goals: Goal[] = [
-    new Goal(1, 'Finding Nemo', 'Watching a tutorial clip', new Date(2019, 3, 14)),
-    new Goal(2, 'Breaking bread', 'The upper room experience', new Date(2020, 2, 16)),
-    new Goal(3, 'Seeking for refuge', 'The place of safety is to be found', new Date(2020, 5, 11)),
-    new Goal(4, 'Learn that grace is Sufficient', 'Watching for the strength that is greater than I', new Date(2020, 8, 20))
-  ];
+  goals: Goal[];
+  quote: Quote;
 
-  constructor() { }
+
+  alertService: AlertService;
+
+  constructor(goalService: GoalService, alertService: AlertService, private http: HttpClient, private quoteRequestService: QuoteRequestService) {
+    this.goals = goalService.getGoals();
+    this.alertService = alertService;
+  }
 
   ngOnInit(): void {
+    this.quoteRequestService.quoteRequest();
+    this.quote = this.quoteRequestService.quote;
   }
 
 }
