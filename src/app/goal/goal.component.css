@@ -1,0 +1,17 @@
+#repetition{
+    background-color: goldenrod;
+    border-radius: 3%;
+    padding: 5px;
+    margin: 4px;
+   
+}
+
+#repetition h4{
+     color: white;
+}
+
+.row{
+    background-color: rgba(23, 0, 0, 0.4);
+    padding: 10px;
+    border-radius: 34px;
+}

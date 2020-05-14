@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "goals101"
+  },
+  "targets": {
+    "goals101": {
+      "hosting": {
+        "Goals": [
+          "goals101"
+        ]
+      }
+    }
   }
 }
