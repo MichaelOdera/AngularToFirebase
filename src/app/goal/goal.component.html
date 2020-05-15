@@ -7,13 +7,12 @@
       <div *ngFor='let goal of goals; let i = index' id="repetition">
         <div>
           <h4 appStrikethrough>
-            <span class="h3">{{ goal.name }}</span> is due on {{goal.completeDate|date|uppercase}}</h4>
-          <button class="btn btn-outline-success" (click)='toggleDetails(i)'>Toggle Details</button>
-        </div>
+            <span id={{i}} class="h3">{{ goal.name }}</span> is due on {{goal.completeDate|date|uppercase}}</h4>
+          <div id="buttons">
+            <button class="btn btn-outline-success" (click)='goToUrl(goal.id)'>View Details</button>
+            <button class='btn btn-outline-danger' (click)='deleteGoal(i)'>Delete</button>
+          </div>
 
-        <div *ngIf='goal.showDescription'>
-          <app-goal-detail (isComplete)='deleteGoal($event, i)' [goal]='goal'>
-          </app-goal-detail>
         </div>
 
       </div>
