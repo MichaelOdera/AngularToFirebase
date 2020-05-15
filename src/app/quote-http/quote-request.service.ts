@@ -20,7 +20,7 @@ export class QuoteRequestService {
       quote: string;
     }
       let promise = new Promise((resolve, reject) => {
-        this.http.get<ApiResponse>("http://quotes.stormconsultancy.co.uk/random.json").toPromise().then(response => {
+        this.http.get<ApiResponse>(environment.baseUrl).toPromise().then(response => {
           this.quote.author = response.author;
           this.quote.quote = response.quote;
 
