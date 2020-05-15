@@ -5,6 +5,7 @@ import { AlertService } from '../alert-service/alert.service';
 import { Quote } from '../quote-class/quote';
 import { HttpClient } from '@angular/common/http';
 import { QuoteRequestService } from '../quote-http/quote-request.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-goal',
@@ -13,19 +14,21 @@ import { QuoteRequestService } from '../quote-http/quote-request.service';
 })
 export class GoalComponent implements OnInit {
 
+  goToUrl(id) {
+    this.router.navigate(['/goals', id])
+  }
+
   toggleDetails(index) {
     this.goals[index].showDescription = !this.goals[index].showDescription;
   }
 
-  deleteGoal(isComplete, index) {
-    if (isComplete) {
+  deleteGoal(index) {
 
       let deleteGoal = confirm('Do you want to delete goal: ' + this.goals[index].name + '?');
 
       if (deleteGoal) {
         this.goals.splice(index, 1);
         this.alertService.alertMe("The goal has been deleted successfully");
-      }
     }
   }
 
@@ -42,7 +45,8 @@ export class GoalComponent implements OnInit {
 
   alertService: AlertService;
 
-  constructor(goalService: GoalService, alertService: AlertService, private http: HttpClient, private quoteRequestService: QuoteRequestService) {
+  constructor(goalService: GoalService, alertService: AlertService, private http: HttpClient,
+    private quoteRequestService: QuoteRequestService, private router: Router) {
     this.goals = goalService.getGoals();
     this.alertService = alertService;
   }
