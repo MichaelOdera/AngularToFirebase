@@ -4,6 +4,18 @@
   <hr>
   <div class="row">
     <div class="col-md-6">
+      <!--The form is captured here-->
+      <app-goal-form (addGoal)="addNewGoal($event)"></app-goal-form>
+      <div id="quote">
+        <h5 class="text-underline">Quote Section</h5>
+        <blockquote class="blockquote text-center">
+          <p class="mb-0">{{quote.quote}}</p>
+          <footer class="blockquote-footer"><cite>{{quote.author}}</cite></footer>
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="col-md-6">
       <div *ngFor='let goal of goals; let i = index' id="repetition">
         <div>
           <h4 appStrikethrough>
@@ -18,17 +30,7 @@
       </div>
     </div>
 
-    <div class="col-md-6">
-      <!--The form is captured here-->
-      <app-goal-form (addGoal)="addNewGoal($event)"></app-goal-form>
-      <div id="quote">
-        <h5 class="text-underline">Quote Section</h5>
-        <blockquote class="blockquote text-center">
-          <p class="mb-0">{{quote.quote}}</p>
-          <footer class="blockquote-footer"><cite>{{quote.author}}</cite></footer>
-        </blockquote>
-      </div>
-    </div>
+
   </div>
 
   <p *ngIf='goals.length > 5'>Your goals are too many</p>
