@@ -9,7 +9,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 14th May 2020
 
 # License
-The license link is here provided as [LICENSE] (LICENSE)
+The license link is here provided as [LICENSE](LICENSE)
 
 # Description
 The following application allows one to create a goal and enter the date of termination of the goal. The application also allows one to search for content from online without the necessity to leave the application when one is accessing it.
