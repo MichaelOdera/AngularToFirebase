@@ -14,6 +14,13 @@ The license link is here provided as [LICENSE](LICENSE)
 # Description
 The following application allows one to create a goal and enter the date of termination of the goal. The application also allows one to search for content from online without the necessity to leave the application when one is accessing it.
 
+# Deployed Link to gh-pages
+Live link - [gh-pages](https://michaelodera.github.io/AngularToFirebase/goals)
+
+
+# Deployed link to Firebase
+Live link - [firbase](https://goals101.web.app)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
