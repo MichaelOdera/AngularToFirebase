@@ -28,18 +28,19 @@ export class GoalComponent implements OnInit {
 
       if (deleteGoal) {
         this.goals.splice(index, 1);
-        this.alertService.alertMe("The goal has been deleted successfully");
     }
   }
+  goals: Goal[];
 
   addNewGoal(goal) {
+    goal = JSON.parse(JSON.stringify(goal))
     let goalLength = this.goals.length;
     goal.id = goalLength + 1;
     goal.completeDate = new Date(goal.completeDate)
     this.goals.push(goal)
   }
 
-  goals: Goal[];
+
   quote: Quote;
 
 
