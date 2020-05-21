@@ -6,11 +6,12 @@
     <div class="col-md-6">
       <!--The form is captured here-->
       <app-goal-form (addGoal)="addNewGoal($event)"></app-goal-form>
+      <hr>
       <div id="quote">
         <h5 class="text-underline">Quote Section</h5>
         <blockquote class="blockquote text-center">
           <p class="mb-0">{{quote.quote}}</p>
-          <footer class="blockquote-footer"><cite>{{quote.author}}</cite></footer>
+          <footer class="blockquote-footer" style="color:burlywood"><cite>{{quote.author}}</cite></footer>
         </blockquote>
       </div>
     </div>
@@ -21,8 +22,8 @@
           <h4 appStrikethrough>
             <span id={{i}} class="h3">{{ goal.name }}</span> is due on {{goal.completeDate|date|uppercase}}</h4>
           <div id="buttons">
-            <button class="btn btn-outline-success" (click)='goToUrl(goal.id)'>View Details</button>
-            <button class='btn btn-outline-danger' (click)='deleteGoal(i)'>Delete</button>
+            <button class="btn btn-success" (click)='goToUrl(goal.id)'>View Details</button>
+            <button class='btn btn-light' (click)='deleteGoal(i)'>Delete</button>
 
           </div>
 
