@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgProgressModule } from '@ngx-progressbar/core';
 import { NgProgressHttpClientModule } from '@ngx-progressbar/http-client';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -36,6 +38,8 @@ import { NotfoundComponent } from './notfound/notfound.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    MatDatepickerModule,
+    MDBBootstrapModule.forRoot(),
     NgProgressModule.forRoot(),
     NgProgressHttpClientModule
   ],

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Goal } from '../goal';
 import { GoalService } from '../goal-service/goal.service';
 import { AlertService } from '../alert-service/alert.service';
@@ -6,6 +6,7 @@ import { Quote } from '../quote-class/quote';
 import { HttpClient } from '@angular/common/http';
 import { QuoteRequestService } from '../quote-http/quote-request.service';
 import { Router } from '@angular/router';
+import { ModalDirective } from 'angular-bootstrap-md';
 
 @Component({
   selector: 'app-goal',
@@ -13,6 +14,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./goal.component.css']
 })
 export class GoalComponent implements OnInit {
+
+  @ViewChild(ModalDirective) modal: ModalDirective;
 
   goToUrl(id) {
     this.router.navigate(['/goals', id])
@@ -23,12 +26,7 @@ export class GoalComponent implements OnInit {
   }
 
   deleteGoal(index) {
-
-      let deleteGoal = confirm('Do you want to delete goal: ' + this.goals[index].name + '?');
-
-      if (deleteGoal) {
-        this.goals.splice(index, 1);
-    }
+    this.goals.splice(index, 1);
   }
   goals: Goal[];
 

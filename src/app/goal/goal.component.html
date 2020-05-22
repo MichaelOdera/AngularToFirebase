@@ -20,10 +20,45 @@
       <div *ngFor='let goal of goals; let i = index' id="repetition">
         <div>
           <h4 appStrikethrough>
-            <span id={{i}} class="h3">{{ goal.name }}</span> is due on {{goal.completeDate|date|uppercase}}</h4>
+            <span id={{i}} class="h3">{{ goal.name }} :-</span> <span class="font-italic">due on {{goal.completeDate|date|uppercase}}</span> </h4>
           <div id="buttons">
-            <button class="btn btn-success" (click)='goToUrl(goal.id)'>View Details</button>
-            <button class='btn btn-light' (click)='deleteGoal(i)'>Delete</button>
+            <button mdbBtn color="success" class="mb-4" (click)='goToUrl(goal.id)'>View Details</button>
+            <button mdbBtn color="light" class="waves-effect mb-4" (click)="frame.show()" mdbWavesEffect>Delete</button>
+
+            <div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog"
+              aria-labelledby="myModalLabel" aria-hidden="true" style="overflow-y: auto">
+              <!--Dialog-->
+              <div class="modal-dialog modal-notify modal-success" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                  <!--Header-->
+                  <div class="modal-header text-center">
+                    <h4 class="modal-title white-text w-100 font-weight-bold py-2">
+                      Confirm Deletion
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+                      <span aria-hidden="true" class="white-text">&times;</span>
+                    </button>
+                  </div>
+
+                  <!--Body-->
+                  <div class="modal-body">
+                    {{goal.name}} 
+                  </div>
+                  <!--/.Body-->
+
+                  <!--Footer-->
+                  <div class="modal-footer justify-content-center">
+                    <button type="button" mdbBtn color="light" class="waves-effect" (click)='deleteGoal(i)' mdbWavesEffect>
+                      YES
+                    </button>
+                  </div>
+                  <!--Footer-->
+                </div>
+                <!--/.Content-->
+              </div>
+              <!--/.Dialog-->
+            </div>
 
           </div>
 
